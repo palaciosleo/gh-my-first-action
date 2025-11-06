@@ -1,4 +1,4 @@
-name: Deploy
+name: QA Pipeline
 on:
   push:
     branches:

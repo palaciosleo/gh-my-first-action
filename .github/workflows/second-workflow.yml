@@ -1,0 +1,14 @@
+name: New issue detected
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  qa-stage:
+    name: New Issue detected!
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Print issue details
+        run: |  
+          echo "Issue Title: ${{ github.event.issue.title }}"
+          echo "Issue Body: ${{ github.event.issue.body }}"
