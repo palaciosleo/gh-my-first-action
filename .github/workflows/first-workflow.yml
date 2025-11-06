@@ -24,6 +24,6 @@ jobs:
       - name: Run linting tool
         run: | 
           echo "Running linting tool..."
-          npm lint
+          npm run lint
 
     
