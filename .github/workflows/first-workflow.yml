@@ -16,9 +16,14 @@ jobs:
         run: |
           ls ${{ github.workspace }}
 
+      - name: Install dependencies
+        run: | 
+          echo "Installing dependencies..."
+          npm ci
+
       - name: Run linting tool
         run: | 
           echo "Running linting tool..."
-          npm run lint
+          npm lint
 
     
