@@ -1,0 +1,57 @@
+name: Deploy
+on:
+  merge:
+    branches:
+      - main
+
+jobs:
+  qa-stage:
+    name: QA Stage
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+
+      - name: Install dependencies
+        run: | 
+          echo "Installing dependencies..."
+          npm ci
+
+      - name: Run linting tool
+        run: | 
+          echo "Running linting tool..."
+          npm run lint
+
+      - name: Run testing tool
+        run: | 
+          echo "Running testing tool..."
+          npm run test
+  build-deploy-stage:
+    name: Build & Deploy Stage
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+
+      - name: Install dependencies
+        run: | 
+          echo "Installing dependencies..."
+          npm ci
+
+      - name: Run building tool
+        run: | 
+          echo "Running linting tool..."
+          npm run build
+
+      - name: Deploy
+        run: echo "Deploying application..."
+
+    
