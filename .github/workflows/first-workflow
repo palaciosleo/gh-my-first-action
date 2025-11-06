@@ -1,0 +1,24 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - feature/*
+
+jobs:
+  run-lint:
+    name: Lint Control
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+
+      - name: Run linting tool
+        run: | 
+          echo "Running linting tool..."
+          npm run lint
+
+    
