@@ -5,8 +5,8 @@ on:
       - feature*
 
 jobs:
-  run-lint:
-    name: Lint Control
+  qa-stage:
+    name: QA Stage
     runs-on: ubuntu-22.04
     steps:
       - name: Check out repository code
@@ -25,5 +25,10 @@ jobs:
         run: | 
           echo "Running linting tool..."
           npm run lint
+
+      - name: Run testing tool
+        run: | 
+          echo "Running testing tool..."
+          npm run test
 
     
